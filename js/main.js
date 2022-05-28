@@ -9,6 +9,10 @@ let t = 0;
 let pepe = new Character("Pepe", 50, 590, "space");
 let pepeDiv = document.getElementById(pepe.name);
 
+let wall1 = new Wall('wall1', "space", 500, 570, 60, 60, 'greenyellow', 3, 4, 4, 4, 4, 'black', 2, 2, 2, 2);
+
+let contactObjects = [];
+
 // Function that checks the status
 
 function myfunction() {
@@ -20,7 +24,6 @@ function myfunction() {
         let pepeDivPosX = window.getComputedStyle(pepeDiv).getPropertyValue('left');
         let pepeDivPosY = window.getComputedStyle(pepeDiv).getPropertyValue('top');
         console.log("sx, sy: " + pepe.sx + ", " + pepe.sy + "posicion div: " + pepeDivPosX + ", " + pepeDivPosY);
-        console.log(pepe.vy);
     }
 
     pepe.upgradePos();
