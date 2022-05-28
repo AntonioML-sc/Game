@@ -1,4 +1,5 @@
 
+// Instances
 
 let time = document.getElementById("timer");
 
@@ -8,25 +9,34 @@ let t = 0;
 let pepe = new Character("Pepe", 50, 590, "space");
 let pepeDiv = document.getElementById(pepe.name);
 
+// Function that checks the status
+
 function myfunction() {
-    t += 20;
-    
+    t += 10;
+
     if (t % 1000 == 0) {
         time.innerHTML = `Tiempo total: ${t / 1000}s`;
 
         let pepeDivPosX = window.getComputedStyle(pepeDiv).getPropertyValue('left');
-        console.log("sx: " + pepe.sx + "posicion div: " + pepeDivPosX);
+        let pepeDivPosY = window.getComputedStyle(pepeDiv).getPropertyValue('top');
+        console.log("sx, sy: " + pepe.sx + ", " + pepe.sy + "posicion div: " + pepeDivPosX + ", " + pepeDivPosY);
+        console.log(pepe.vy);
     }
 
     pepe.upgradePos();
 }
+
+// Events that send orders for movement
 
 document.addEventListener('keydown', (event) => {
     const keyName = event.key;
     if (keyName == 'd') {
         pepe.setVx('right');
     } else if (keyName == 'a') {
-        pepe.setVx('left');        
+        pepe.setVx('left');
+    }
+    if (keyName == 'w') {
+        pepe.jump();
     }
 });
 
@@ -39,6 +49,8 @@ document.addEventListener('keyup', (event) => {
         pepe.setVx('stop');      
     }
 });
+
+// order to execute the function that upgrades the status in 10ms time
 
 let count = setInterval(myfunction, 10);
 

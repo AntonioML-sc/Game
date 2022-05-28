@@ -8,14 +8,15 @@ class Character {
     name = '';
     hp = 100;
     maxSpeedX = 1.5;
-    height = 40;
-    width = 25;
+    maxSpeedY = 5.0;
+    height = 40.0;
+    width = 25.0;
     sx = 50;
     sy = 590;
-    vx = 0;
-    vy = 0;
-    ax = 0;
-    ay = 0;
+    vx = 0.0;
+    vy = 0.0;
+    ax = 0.0;
+    ay = 0.1;
     img = '';
     topBorder;
     bottomBorder;
@@ -23,6 +24,7 @@ class Character {
     rightBorder;
     fatherDiv = '';
     div;
+    jumping = false;
 
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -53,31 +55,58 @@ class Character {
 
     setVx(direction) {
         // set speed in x axis, based in commands and phisics
+        switch (direction) {
+            case 'right':
+                this.vx = this.maxSpeedX;
+                break;
+            case 'left':
+                this.vx = -1 * this.maxSpeedX;
+                break;
+            case 'stop':
+                this.vx = 0;
+                break;
+            default:
+                break;
+        }
+    }
+
+    jump() {
+        // set speed in y axis on jump, based in commands and phisics
         if (this.vy == 0) {
-            switch (direction) {
-                case 'right':
-                    this.vx = this.maxSpeedX;
-                    break;
-                case 'left':
-                    this.vx = -1 * this.maxSpeedX;
-                    break;
-                case 'stop':
-                    this.vx = 0;
-                    break;
-                default:
-                    break;
-            }
+            this.vy = (-1 * this.maxSpeedY);
+            this.jumping = true;
         }
     }
 
     upgradePos() {
-        // calculate the new position based on speed and assign a new valid position  
+        // calculate the new position based on speed and assign a new valid position
+        // movement in x-axis
         this.sx += this.vx;
         if (this.sx < 0) {
             this.sx = 0;
         }
         if (this.sx > WINDOWWIDTH - this.width) {
             this.sx = WINDOWWIDTH - this.width;
+        }
+
+
+        // movement in y-axis
+
+        if (this.jumping) {
+            this.vy += this.ay;
+        }        
+
+        this.sy += this.vy;
+        if (this.sy < 0) {
+            this.sy = 0;
+        }
+        if (this.sy > WINDOWHEIGHT - this.height) {
+            this.sy = WINDOWHEIGHT - this.height;
+        }
+
+        if ((this.jumping) && (this.sy == WINDOWHEIGHT - this.height)) {
+            this.vy = 0.0;
+            this.jumping = false;
         }
 
         // upgrade borders positions
@@ -88,6 +117,7 @@ class Character {
 
         // set the div in the assigned position
         this.div.style.setProperty("left", `${pepe.sx}px`);
+        this.div.style.setProperty("top", `${pepe.sy}px`);
     }
 
 }
