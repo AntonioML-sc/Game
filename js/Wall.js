@@ -5,12 +5,12 @@ class Wall {
     name = '';
     height = 60.0;  // sixe in px
     width = 60.0;
-    sx = 300;       // insertion coordinates
-    sy = 570;
-    topBorder;      // borders position for contacts
-    bottomBorder;
-    leftBorder;
-    rightBorder;
+    sx = 300.0;       // insertion coordinates
+    sy = 570.0;
+    topBorder = 570.0;      // borders position for contacts
+    bottomBorder = 630.0;
+    leftBorder = 300.0;
+    rightBorder = 360.0;
     fatherDiv = ''; // insertion div
     div;            // div that will be created on rendering
 
@@ -33,14 +33,14 @@ class Wall {
     constructor(name, fatherDiv, sx, sy, width, height, bgColor, zIndex, brLT, brRT, brLB, brRB,
         borderColor, borderTopSize, borderBottomSize, borderLeftSize, borderRightSize) {
         this.name = name;
-        this.sx = sx;
-        this.sy = sy;
-        this.width = width;
-        this.height = height;
+        this.sx = Number(sx);
+        this.sy = Number(sy);
+        this.width = Number(width);
+        this.height = Number(height);
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
         this.leftBorder = this.sx;
-        this.bottomBorder = this.sx + this.width;
+        this.rightBorder = this.sx + this.width;
         this.fatherDiv = fatherDiv;
         this.zIndex = zIndex;
         this.bgColor = bgColor;

@@ -11,17 +11,17 @@ class Character {
     maxSpeedY = 5.0;
     height = 40.0;
     width = 25.0;
-    sx = 50;
-    sy = 590;
+    sx = 50.0;
+    sy = 590.0;
     vx = 0.0;
     vy = 0.0;
     ax = 0.0;
     ay = 0.1;
     img = '';
-    topBorder;
-    bottomBorder;
-    leftBorder;
-    rightBorder;
+    topBorder = 590.0;
+    bottomBorder = 630.0;
+    leftBorder = 50.0;
+    rightBorder = 75.0;
     fatherDiv = '';
     div;
     jumping = false;
@@ -30,12 +30,12 @@ class Character {
 
     constructor(name, sx, sy, fatherDiv) {
         this.name = name;
-        this.sx = sx;
-        this.sy = sy;
+        this.sx = Number(sx);
+        this.sy = Number(sy);
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
         this.leftBorder = this.sx;
-        this.bottomBorder = this.sx + this.width;
+        this.rightBorder = this.sx + this.width;
         this.fatherDiv = fatherDiv;
         this.render();
     }
@@ -53,7 +53,7 @@ class Character {
         this.div.setAttribute("style", `background-color: orange; width: ${this.width}px; height: ${this.height}px; position: absolute; top: ${this.sy}px; left: ${this.sx}px; z-index: 5;`);
     }
 
-    setVx(direction) {
+    move(direction) {
         // set speed in x axis, based in commands and phisics
         switch (direction) {
             case 'right':
@@ -78,10 +78,13 @@ class Character {
         }
     }
 
-    upgradePos() {
+    upgradePos(arr) {
         // calculate the new position based on speed and assign a new valid position
-        // movement in x-axis
+
+        ////////// MOVEMENT IN X-AXIS \\\\\\\\\\
         this.sx += this.vx;
+
+        // avoid character go beyond left and right borders of the gaming area
         if (this.sx < 0) {
             this.sx = 0;
         }
@@ -89,8 +92,28 @@ class Character {
             this.sx = WINDOWWIDTH - this.width;
         }
 
+        // checking contacts in x-axis
+        for (let obs of arr) {
+            // console.log("pepe rightBorder: " + this.rightBorder + ", wall leftborder: " + obs.leftBorder);
+            // console.log("Pepe borders: top: " + this.topBorder + " bottom: " + this.bottomBorder + ", Wall borders: top: " + obs.topBorder + " bottom: " + obs.bottomBorder);
 
-        // movement in y-axis
+            if ((this.bottomBorder > obs.topBorder) && (this.topBorder < obs.bottomBorder)) {
+
+                if ((this.rightBorder > obs.leftBorder) && (this.leftBorder < obs.rightBorder)) {  // colission
+                    if ((this.vx > 0.0) && (this.leftBorder < obs.leftBorder)) {  // obstacle to right
+                        this.sx = obs.leftBorder - this.width;
+                    }
+                    if ((this.vx < 0.0) && (this.rightBorder > obs.rightBorder)) {  // obstacle to left
+                        this.sx = obs.rightBorder;
+                    }
+                    [this.vx, this.vy] = [0.0, 0.0];                    
+                }
+            }
+
+        }
+
+
+        ////////// MOVEMENT IN Y-AXIS \\\\\\\\\\
 
         if (this.jumping) {
             this.vy += this.ay;
@@ -113,7 +136,7 @@ class Character {
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
         this.leftBorder = this.sx;
-        this.bottomBorder = this.sx + this.width;
+        this.rightBorder = this.sx + this.width;
 
         // set the div in the assigned position
         this.div.style.setProperty("left", `${pepe.sx}px`);
