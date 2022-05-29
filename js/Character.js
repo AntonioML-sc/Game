@@ -84,52 +84,69 @@ class Character {
         ////////// MOVEMENT IN X-AXIS \\\\\\\\\\
         this.sx += this.vx;
 
-        // avoid character go beyond left and right borders of the gaming area
+        // avoid character go beyond left and right borders of the gaming area. Impacts are inelastic.
         if (this.sx < 0) {
-            this.sx = 0;
+            this.sx = 0;            
+            [this.vx, this.vy] = [0.0, 0.0];
         }
         if (this.sx > WINDOWWIDTH - this.width) {
             this.sx = WINDOWWIDTH - this.width;
+            [this.vx, this.vy] = [0.0, 0.0];
         }
 
-        // checking contacts in x-axis
+        // checking contacts in x-axis. Impacts are inelastic.
         for (let obs of arr) {
             // console.log("pepe rightBorder: " + this.rightBorder + ", wall leftborder: " + obs.leftBorder);
             // console.log("Pepe borders: top: " + this.topBorder + " bottom: " + this.bottomBorder + ", Wall borders: top: " + obs.topBorder + " bottom: " + obs.bottomBorder);
 
-            if ((this.bottomBorder > obs.topBorder) && (this.topBorder < obs.bottomBorder)) {
-
+            if ((this.bottomBorder > obs.topBorder) && (this.topBorder < obs.bottomBorder)) {  // obstacles at character's height
                 if ((this.rightBorder > obs.leftBorder) && (this.leftBorder < obs.rightBorder)) {  // colission
                     if ((this.vx > 0.0) && (this.leftBorder < obs.leftBorder)) {  // obstacle to right
-                        this.sx = obs.leftBorder - this.width;
+                        this.sx = obs.leftBorder - this.width - 2;
                     }
                     if ((this.vx < 0.0) && (this.rightBorder > obs.rightBorder)) {  // obstacle to left
-                        this.sx = obs.rightBorder;
+                        this.sx = obs.rightBorder + 2;
                     }
-                    [this.vx, this.vy] = [0.0, 0.0];                    
+                    [this.vx, this.vy] = [0.0, 0.0];
                 }
             }
-
         }
-
 
         ////////// MOVEMENT IN Y-AXIS \\\\\\\\\\
 
+        // gravity
         if (this.jumping) {
             this.vy += this.ay;
-        }        
-
+        }
         this.sy += this.vy;
-        if (this.sy < 0) {
-            this.sy = 0;
-        }
-        if (this.sy > WINDOWHEIGHT - this.height) {
-            this.sy = WINDOWHEIGHT - this.height;
-        }
 
-        if ((this.jumping) && (this.sy == WINDOWHEIGHT - this.height)) {
+        // avoid character go beyond top and bottom borders of the gaming area. Impacts are inelastic.
+        if (this.topBorder <= 0) {
+            this.sy = 0;
+            this.vy = 0.0;
+        }
+        if (this.bottomBorder > WINDOWHEIGHT) {
+            this.sy = WINDOWHEIGHT - this.height;
             this.vy = 0.0;
             this.jumping = false;
+        }
+
+        // checking contacts in y-axis. Impacts are inelastic.
+        for (let obs of arr) {
+            if ((this.rightBorder > obs.leftBorder) && (this.leftBorder < obs.rightBorder)) {  // obstacles under or over the character
+
+                if ((this.topBorder < obs.bottomBorder) && (this.bottomBorder > obs.topBorder)) {  // colission
+                    if (this.bottomBorder > obs.bottomBorder) {  // obstacle over character
+                        this.sy = obs.bottomBorder;
+                        this.vy = 0.0;                        
+                    }
+                    if (this.topBorder < obs.topBorder) {  // obstacle under character
+                        this.sy = obs.topBorder - this.height;
+                        this.vy = 0.0;
+                        this.jumping = false;
+                    }
+                }
+            }
         }
 
         // upgrade borders positions
