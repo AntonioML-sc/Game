@@ -46,12 +46,14 @@ body {
 #space {
     width: 100%;
     height: 630px;
-    background-color: aquamarine;
+    background: linear-gradient(rgb(61, 190, 232), rgb(210, 232, 239));
     position:relative;
+    
 }
 
 #floor {
     width: 100%;
     height: 20px;
     background-color: brown;
+    z-index: 10;
 }

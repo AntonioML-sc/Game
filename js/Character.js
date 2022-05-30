@@ -78,8 +78,29 @@ class Character {
         }
     }
 
-    upgradePos(arr) {
-        // calculates the new position based on speed and phisics and assigns a new valid position.
+    upgradePos(arr, liquids = []) {
+        // upgrades character status based on speed and phisics and assigns a new valid position.
+
+        ////////// ENVIRONMENTAL ADJUSTMENTS \\\\\\\\\\
+
+        function adjustVel(leftBorder, rightBorder, topBorder, bottomBorder, vx, vy, hp, liqs) {
+            if (liqs.length == 0) {
+                return [vx, vy, hp];
+            } else {
+                for (let i in liqs) {
+                    if ((rightBorder > liqs[i].leftBorder) && (leftBorder < liqs[i].rightBorder) && (topBorder < liqs[i].bottomBorder) && (bottomBorder >= liqs[i].topBorder)) {
+                        const newVX = vx * liqs[i].velXPenalty;
+                        const newVY = vy * liqs[i].velYPenalty;
+                        const newHP = hp - liqs[i].dps;
+                        return [newVX, newVY, newHP];
+                    } else if (i == liqs.length - 1) {
+                        return [vx, vy, hp];
+                    }
+                }
+            }                        
+        }
+
+        [this.vx, this.vy, this.hp] = adjustVel(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.hp, liquids);
 
         ////////// MOVEMENT IN X-AXIS \\\\\\\\\\
 
@@ -158,35 +179,27 @@ class Character {
                 const newBB = WINDOWHEIGHT;
                 const newVY = 0;
                 const newJump = false;
-                console.log("estoy en el suelo. Borde inferior: " + newBB);
                 return [sx, newY, vx, newVY, newJump, newTB, newBB, leftBorder, rightBorder];
             } else {    // checking contacts in y-axis. Impacts are inelastic.
                 const provTB = Math.round(sy + provVy);
                 const provBB = Math.round(sy + provVy + height);
-                console.log("provisionalBottomBorder = " + provBB);
                 for (let i in obstacles) {
                     if ((rightBorder > obstacles[i].leftBorder) && (leftBorder < obstacles[i].rightBorder) && (provTB < obstacles[i].bottomBorder) && (provBB >= obstacles[i].topBorder)) {  // colission
-
                         if (provBB > obstacles[i].bottomBorder) {    // colission with obstacle over character
-                            console.log("colisión en objeto arriba");
                             const newY = obstacles[i].bottomBorder;
                             const newTB = obstacles[i].bottomBorder;
                             const newBB = obstacles[i].bottomBorder + height;
                             const newVY = 0.0;
                             const newJump = true;
                             return [sx, newY, vx, newVY, newJump, newTB, newBB, leftBorder, rightBorder];
-
                         } else if (provBB < obstacles[i].topBorder) {    // colission with obstacle below the character (change '<' to '<=' to eliminate the next case)
                             const newY = obstacles[i].topBorder - height;
                             const newTB = obstacles[i].topBorder - height;
                             const newBB = obstacles[i].topBorder;
                             const newVY = 0.0;
-                            const newJump = false;                            
-                            console.log("colisión en objeto abajo. Nuevo borde inferior: " + newBB);
+                            const newJump = false;
                             return [sx, newY, vx, newVY, newJump, newTB, newBB, leftBorder, rightBorder];
-
                         } else {    // walking on something (case not strictly necessary, just for testing)
-                            console.log("encima de un objeto");
                             const newY = obstacles[i].topBorder - height;
                             const newTB = obstacles[i].topBorder - height;
                             const newBB = obstacles[i].topBorder;
@@ -194,7 +207,6 @@ class Character {
                             const newJump = false;
                             return [sx, newY, vx, newVY, newJump, newTB, newBB, leftBorder, rightBorder];
                         }
-
                     } else if ((i == (obstacles.length - 1))) {    // no obstacle at all. Jumping or falling.
                         const newY = sy + provVy;
                         const newTB = sy + provVy;
@@ -210,7 +222,7 @@ class Character {
         [this.sx, this.sy, this.vx, this.vy, this.jumping, this.topBorder, this.bottomBorder, this.leftBorder, this.rightBorder] = setsy(...setsx(this.sx, this.vx, this.vy, this.width, this.topBorder, this.bottomBorder, arr), this.sy, this.ay, this.jumping, this.height, arr);
 
         // set the div in the assigned position
-        this.div.style.setProperty("left", `${pepe.sx}px`);
-        this.div.style.setProperty("top", `${pepe.sy}px`);
+        this.div.style.setProperty("left", `${this.sx}px`);
+        this.div.style.setProperty("top", `${this.sy}px`);
     }
 }
