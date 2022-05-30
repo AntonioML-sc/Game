@@ -22,11 +22,17 @@ let platform3 = new Wall('platform3', 'space', 1050, 530, 300, 15, 'brown', 3, 3
 let platform4 = new Wall('platform4', 'space', 1050, 200, 300, 15, 'brown', 3, 3, 3, 3, 3, 'black', 2, 2, 2, 2);
 
 let acid1 = new Fluid('acid1', "space", 660, 600, 160, 30, 'lime', 'lime', 0.35, 0.03, 0.7, 0.97);
-let toxicFog1 = new Fluid('toxicFog1', "space", 160, 580, 340, 50, 'lime', 'lime', 0.2, 0.02, 1, 1)
+let toxicFog1 = new Fluid('toxicFog1', "space", 160, 580, 340, 50, 'fuchsia', 'fuchsia', 0.1, 0.02, 1, 1);
+
+let spike1 = new SpikeTrap('spike1', "space", 570, 605, 'silver', 3);
+let spike2 = new SpikeTrap('spike2', "space", 1100, 605, 'grey', 3);
+let spike3 = new SpikeTrap('spike3', "space", 1125, 605, 'grey', 3);
 
 
 let contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4];
 let hazardZones = [acid1, toxicFog1];
+let spikes = [spike1, spike2, spike3];
+
 
 console.log("Pepe borders: top: " + pepe.topBorder + " bottom: " + pepe.bottomBorder + ", wall1 borders: top: " + wall1.topBorder + " bottom: " + wall1.bottomBorder);
 console.log("wall1: sx, sy = " + wall1.sx + ", " + wall1.sy + ".  width, height: " + wall1.width + ", " + wall1.height);
@@ -47,7 +53,7 @@ function myfunction() {
         // console.log("pepe rightBorder: " + pepe.rightBorder + ", wall leftborder: " + wall1.leftBorder); 
     }
 
-    pepe.upgradePos(contactObjects, hazardZones);
+    pepe.upgradePos(contactObjects, hazardZones, spikes);
 }
 
 // Events that send orders for movement

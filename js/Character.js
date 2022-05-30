@@ -78,12 +78,12 @@ class Character {
         }
     }
 
-    upgradePos(arr, liquids = []) {
+    upgradePos(arr, liquids, spikes = []) {
         // upgrades character status based on speed and phisics and assigns a new valid position.
 
         ////////// ENVIRONMENTAL ADJUSTMENTS \\\\\\\\\\
 
-        function adjustVel(leftBorder, rightBorder, topBorder, bottomBorder, vx, vy, hp, liqs) {
+        function applyFluids(leftBorder, rightBorder, topBorder, bottomBorder, vx, vy, hp, liqs) {
             if (liqs.length == 0) {
                 return [vx, vy, hp];
             } else {
@@ -97,10 +97,31 @@ class Character {
                         return [vx, vy, hp];
                     }
                 }
-            }                        
+            }
         }
 
-        [this.vx, this.vy, this.hp] = adjustVel(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.hp, liquids);
+        function spikeTraps(leftBorder, rightBorder, topBorder, bottomBorder, hp, spikes) {
+            if (spikes.length == 0) {
+                return hp;
+            } else {
+                for (let i in spikes) {
+                    if ((rightBorder > spikes[i].leftBorder) && (leftBorder < spikes[i].rightBorder) && (topBorder < spikes[i].bottomBorder) && (bottomBorder >= spikes[i].topBorder)) {
+                        if (bottomBorder < spikes[i].bottomBorder) {
+                            const newHP = 0;
+                            return newHP;
+                        } else {
+                            return hp;
+                        }
+                    } else if (i == spikes.length - 1) {
+                        return hp;
+                    }
+                }
+            }
+        }
+
+        [this.vx, this.vy, this.hp] = applyFluids(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.hp, liquids);
+
+        this.hp = spikeTraps(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.hp, spikes);
 
         ////////// MOVEMENT IN X-AXIS \\\\\\\\\\
 
