@@ -28,21 +28,26 @@ class Character {
 
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    constructor(name, sx, sy, fatherDiv) {
+    constructor(name, hp, speed, jump) {
         this.name = name;
-        this.sx = Number(sx);
-        this.sy = Number(sy);
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
         this.leftBorder = this.sx;
         this.rightBorder = this.sx + this.width;
-        this.fatherDiv = fatherDiv;
-        this.render();
+        this.hp = hp;
+        this.maxSpeedX = speed;
+        this.maxSpeedY = jump;
     }
 
     ///////////////////////////////  METHODS  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    render() {
+    render(sx, sy, fatherDiv) {
+
+        // rendering options
+        this.fatherDiv = fatherDiv;
+        this.sx = Number(sx);
+        this.sy = Number(sy);
+
         // creates a div in this.fatherDiv that represents the character
         let make = document.createElement('div');
         make.setAttribute("id", this.name);
@@ -50,7 +55,16 @@ class Character {
 
         // set styles to the charachter        
         this.div = document.getElementById(this.name);
-        this.div.setAttribute("style", `background-color: orange; width: ${this.width}px; height: ${this.height}px; position: absolute; top: ${this.sy}px; left: ${this.sx}px; z-index: 5;`);
+        this.div.setAttribute("style",
+            `background-color: orange;
+            width: ${this.width}px;
+            height: ${this.height}px;
+            position: absolute;
+            top: ${this.sy}px;
+            left: ${this.sx}px;
+            z-index: 5;`
+        );
+        this.div.innerHTML = this.name;  // note to dev: delete this line when image is available
     }
 
     move(direction) {
@@ -247,3 +261,19 @@ class Character {
         this.div.style.setProperty("top", `${this.sy}px`);
     }
 }
+
+////////// INSTANCES \\\\\\\\\\
+
+const pepe = new Character("pepe", 100, 1.5, 5);
+const juan = new Character("juan", 80, 1.6, 5);
+const ana = new Character("ana", 80, 1.5, 5.5);
+const elena = new Character("elena", 50, 1.7, 5.5);
+
+////////// JS DICTIONARY \\\\\\\\\\
+
+const characters = {
+    "1": pepe,
+    "2": juan,
+    "3": ana,
+    "4": elena
+};
