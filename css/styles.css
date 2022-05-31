@@ -11,12 +11,14 @@ body {
     background-color: rgb(93, 93, 93);
 }
 
-#mainContainer {
+/* MAIN GAME SCREEN */
+
+#screen4 {
     width: 1500px;
     height: 702px;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -56,4 +58,107 @@ body {
     height: 20px;
     background-color: brown;
     z-index: 10;    
+}
+
+/* MENUS SCREENS */
+
+/* screen 1 and children */
+
+#screen1 {
+    height: 100vh;
+    width: 100vw;
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    background-color: aquamarine;
+    height: 30em;
+    width: 30em;
+} 
+
+/* screen 2 and children */
+
+#screen2 {
+    height: 100vh;
+    width: 100vw;
+    background-color: grey;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.charactersDisplay {
+    background-color: cadetblue;
+    display: flex;
+    height: 20em;
+    width: 50em;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;    
+}
+
+.character {
+    height: 15em;
+    width: 10em;
+}
+
+.ch1 {    
+    background-color: red;
+}
+
+.ch2 {    
+    background-color: blue;
+}
+
+.ch3 {    
+    background-color: yellow;
+}
+
+.ch4 {    
+    background-color: green;
+}
+
+.photo {
+    height: 8em;
+    padding: 2em;
+}
+
+/* screen 3 and children */
+
+#screen3 {
+    height: 100vh;
+    width: 100vw;
+    background-color: violet;
+    display: none;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#waitingDisplay {
+    background-color: cadetblue;
+    display: flex;
+    height: 20em;
+    width: 50em;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#countdown {
+    height: 15em;
+    width: 10em;
+    background-color: black;
+}
+
+/* screen 5 and children */
+
+#screen5 {
+    height: 100vh;
+    width: 100vw;
+    background-color: orange;
+    display: none;
 }

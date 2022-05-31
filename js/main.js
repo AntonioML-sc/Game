@@ -1,4 +1,59 @@
 
+let players = [];
+
+let winner = "";
+const winnerIs = document.getElementById("winnerIs");
+
+const screenShift = (nextScreenId) => {
+
+    const destination = document.getElementById(nextScreenId);
+    destination.style.display = "flex";
+
+    const ScreensArray = ["screen1","screen2","screen3","screen4","screen5"];
+
+    for(let screen of ScreensArray){
+        if(screen != nextScreenId){
+            document.getElementById(screen).style.display = "none";
+        };
+    };
+};
+
+const pickCharacter = (character) => {
+    
+    if (players.length < 2) {
+        // build the array of players with the picked characters
+        players.push(characters[character]);
+        console.log(players);
+
+        if (players.length == 2) {
+
+            setTimeout(() => {
+
+                // set the portraits of the picked characters in screen3 before shifting
+                const p1Character = document.getElementById("player1Character");
+                const p2Character = document.getElementById("player2Character");
+                const countdown = document.getElementById("countdown");
+                // falta pegar aquí las imágenes con .style
+                
+                screenShift("screen3");
+
+                setTimeout(()=>{
+
+                    play(players);  // execute the game with the chosen characters
+
+                    setTimeout(() => {
+                        screenShift("screen4");
+                    }, 2000);                  
+                    
+                },3000);
+
+            },500);
+        }
+    }
+};
+
+// playgame
+
 const play = (players) => {
 
     // Instances
@@ -109,10 +164,34 @@ const play = (players) => {
             player2.move('stop');
         }
     });
+    
+    // Event to send the order to quit and go to screen 5
+
+    const forceExit = () => {
+        console.log("salida forzada");
+        clearInterval(runGame);
+        winnerIs.innerHTML = "No winner";
+        screenShift("screen5");
+    }
+
+    document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+        if (keyName == 'Escape') {
+            forceExit();
+        }
+    });
 
     // order to execute the function that upgrades the status in 10ms time
 
-    const count = setInterval(myfunction, 10);
+    let runGame = setInterval(myfunction, 10);
 }
 
-play([characters["1"], characters["4"]]);
+const restart = () => {
+    // restart the game from screen 1
+    console.log("restart");
+    players = [];
+    winner = "";
+    screenShift("screen1");
+};
+
+// play([characters["1"], characters["4"]]);
