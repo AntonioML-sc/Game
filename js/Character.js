@@ -105,7 +105,7 @@ class Character {
                     if ((rightBorder > liqs[i].leftBorder) && (leftBorder < liqs[i].rightBorder) && (topBorder < liqs[i].bottomBorder) && (bottomBorder >= liqs[i].topBorder)) {
                         const newVX = vx * liqs[i].velXPenalty;
                         const newVY = vy * liqs[i].velYPenalty;
-                        const newHP = hp - liqs[i].dps;
+                        const newHP = Math.max(hp - liqs[i].dps, 0);
                         return [newVX, newVY, newHP];
                     } else if (i == liqs.length - 1) {
                         return [vx, vy, hp];

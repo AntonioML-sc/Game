@@ -104,14 +104,16 @@ const play = (players) => {
     const spearFloor1 = new SpearTrap('spearFloor1', "space", 1180, 570, 'grey', 3);
     const spearFloor2 = new SpearTrap('spearFloor2', "space", 1150, 480, 'grey', 2, 50);
 
+    const rollingRock1 = new RollingRock('rollingRock1', "space", 700, 350, 2, 300, 'lightgrey', 'grey', 1, 'black', 3);
+
 
     // arrays of objects to test players status
     const contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4, platform5, platform6];
-    const hazardZones = [acid1, toxicFog1];
+    const hazardZones = [acid1, toxicFog1, rollingRock1];
     const spikes = [spike1, spike2, spike3, spearFloor1, spearFloor2];
     const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3, spearCeiling1, spearCeiling2];
 
-    const upgradingItems = [spearCeiling1, spearCeiling2, spearFloor1, spearFloor2]
+    const upgradingItems = [spearCeiling1, spearCeiling2, spearFloor1, spearFloor2, rollingRock1]
 
 
     console.log("player1 borders: top: " + player1.topBorder + " bottom: " + player1.bottomBorder + ", wall1 borders: top: " + wall1.topBorder + " bottom: " + wall1.bottomBorder);
