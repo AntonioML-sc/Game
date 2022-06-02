@@ -92,7 +92,7 @@ class Character {
         }
     }
 
-    upgradePos(arr, liquids, spikes = []) {
+    upgradePos(arr, liquids, spikes, ceilingSpikes) {
         // upgrades character status based on speed and phisics and assigns a new valid position.
 
         ////////// ENVIRONMENTAL ADJUSTMENTS \\\\\\\\\\
@@ -133,9 +133,31 @@ class Character {
             }
         }
 
+        function spikeTrapsCeiling(leftBorder, rightBorder, topBorder, bottomBorder, hp, ceilingSpikes) {
+            if (ceilingSpikes.length == 0) {
+                return hp;
+            } else {
+                for (let i in ceilingSpikes) {
+                    if ((rightBorder > ceilingSpikes[i].leftBorder) && (leftBorder < ceilingSpikes[i].rightBorder) && (topBorder <= ceilingSpikes[i].bottomBorder) && (bottomBorder > ceilingSpikes[i].topBorder)) {
+                        if (bottomBorder > ceilingSpikes[i].bottomBorder) {
+                            const newHP = 0;
+                            return newHP;
+                        } else {
+                            return hp;
+                        }
+                    } else if (i == ceilingSpikes.length - 1) {
+                        return hp;
+                    }
+                }
+            }
+        }
+
+
         [this.vx, this.vy, this.hp] = applyFluids(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.hp, liquids);
 
         this.hp = spikeTraps(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.hp, spikes);
+        
+        this.hp = spikeTrapsCeiling(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.hp, ceilingSpikes);
 
         ////////// MOVEMENT IN X-AXIS \\\\\\\\\\
 

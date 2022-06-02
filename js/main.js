@@ -43,9 +43,9 @@ const pickCharacter = (character) => {
 
                     setTimeout(() => {
                         screenShift("screen4");
-                    }, 2000);                  
+                    }, 1500);                  
                     
-                },3000);
+                },2000);
 
             },500);
         }
@@ -88,14 +88,19 @@ const play = (players) => {
     const acid1 = new Fluid('acid1', "space", 660, 600, 160, 30, 'lime', 'lime', 0.35, 0.03, 0.7, 0.97);
     const toxicFog1 = new Fluid('toxicFog1', "space", 160, 580, 340, 50, 'fuchsia', 'fuchsia', 0.1, 0.02, 1, 1);
 
-    const spike1 = new SpikeTrap('spike1', "space", 570, 605, 'silver', 3);
-    const spike2 = new SpikeTrap('spike2', "space", 1100, 605, 'grey', 3);
-    const spike3 = new SpikeTrap('spike3', "space", 1125, 605, 'grey', 3);
+    const spike1 = new SpikeTrap('spike1', "space", 570, 610, 'silver', 3);
+    const spike2 = new SpikeTrap('spike2', "space", 1100, 610, 'grey', 3);
+    const spike3 = new SpikeTrap('spike3', "space", 1120, 610, 'grey', 3);
+
+    const spikeCeiling1 = new SpikeTrapCeiling('spikeCeiling1', "space", 1050, 545, 'grey', 3);
+    const spikeCeiling2 = new SpikeTrapCeiling('spikeCeiling2', "space", 1070, 545, 'grey', 3);
+    const spikeCeiling3 = new SpikeTrapCeiling('spikeCeiling3', "space", 1330, 545, 'grey', 3);
 
     // arrays of objects to test players status
     const contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4];
     const hazardZones = [acid1, toxicFog1];
     const spikes = [spike1, spike2, spike3];
+    const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3];
 
 
     console.log("player1 borders: top: " + player1.topBorder + " bottom: " + player1.bottomBorder + ", wall1 borders: top: " + wall1.topBorder + " bottom: " + wall1.bottomBorder);
@@ -112,9 +117,9 @@ const play = (players) => {
             console.log("Player1 vida restante: ", Math.round(player1.hp)); 
         }
 
-        player1.upgradePos(contactObjects, hazardZones, spikes);
+        player1.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
 
-        player2.upgradePos(contactObjects, hazardZones, spikes);
+        player2.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
     }
 
     // Events that send orders for player1 movement

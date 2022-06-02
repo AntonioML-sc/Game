@@ -1,5 +1,5 @@
 
-class SpikeTrap {
+class SpikeTrapCeiling {
     ///////////////////////////////  CLASS ATTRIBUTES  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     name = '';
@@ -55,7 +55,7 @@ class SpikeTrap {
             top: ${this.sy}px;
             left: ${this.sx}px;
             z-index: ${this.zIndex};
-            clip-path: polygon(0 100%, 10% 100%, 25% 0, 40% 100%, 60% 100%, 75% 0, 90% 100%, 100% 100%);`
+            clip-path: polygon(0 0, 10% 0, 25% 100%, 40% 0, 60% 0, 75% 100%, 90% 0, 100% 0);`
         );
     }
 }
