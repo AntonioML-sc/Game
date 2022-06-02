@@ -96,11 +96,15 @@ const play = (players) => {
     const spikeCeiling2 = new SpikeTrapCeiling('spikeCeiling2', "space", 1070, 545, 'grey', 3);
     const spikeCeiling3 = new SpikeTrapCeiling('spikeCeiling3', "space", 1330, 545, 'grey', 3);
 
+    const spearCeiling1 = new SpearTrapCeiling('spearTrapCeiling1', "space", 1240, 545, 'grey', 3, 0);
+    const spearCeiling2 = new SpearTrapCeiling('spearTrapCeiling2', "space", 1280, 545, 'grey', 3, 100);
+
+
     // arrays of objects to test players status
     const contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4];
     const hazardZones = [acid1, toxicFog1];
     const spikes = [spike1, spike2, spike3];
-    const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3];
+    const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3, spearCeiling1, spearCeiling2];
 
 
     console.log("player1 borders: top: " + player1.topBorder + " bottom: " + player1.bottomBorder + ", wall1 borders: top: " + wall1.topBorder + " bottom: " + wall1.bottomBorder);
@@ -109,10 +113,10 @@ const play = (players) => {
     // Function that checks the status
 
     function myfunction() {
-        t += 10;
+        t += 1;
 
-        if (t % 1000 == 0) {
-            time.innerHTML = `Tiempo total: ${t / 1000}s`;
+        if (t % 100 == 0) {
+            time.innerHTML = `Tiempo total: ${t / 100}s`;
 
             console.log("Player1 vida restante: ", Math.round(player1.hp)); 
         }
@@ -120,6 +124,9 @@ const play = (players) => {
         player1.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
 
         player2.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
+
+        spearCeiling1.upgradePos(t);
+        spearCeiling2.upgradePos(t);
     }
 
     // Events that send orders for player1 movement
