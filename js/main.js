@@ -84,6 +84,8 @@ const play = (players) => {
     const platform2 = new Wall('platform2', 'space', 300, 470, 80, 10, 'brown', 3, 3, 3, 3, 3, 'black', 2, 2, 2, 2);
     const platform3 = new Wall('platform3', 'space', 1050, 530, 300, 15, 'brown', 3, 3, 3, 3, 3, 'black', 2, 2, 2, 2);
     const platform4 = new Wall('platform4', 'space', 1050, 200, 300, 15, 'brown', 3, 3, 3, 3, 3, 'black', 2, 2, 2, 2);
+    const platform5 = new Wall('platform5', 'space', 1200, 100, 300, 15, 'brown', 3, 3, 3, 3, 3, 'black', 2, 2, 2, 2);
+    const platform6 = new Wall('platform6', 'space', 700, 400, 300, 15, 'brown', 3, 3, 3, 3, 3, 'black', 2, 2, 2, 2);
 
     const acid1 = new Fluid('acid1', "space", 660, 600, 160, 30, 'lime', 'lime', 0.35, 0.03, 0.7, 0.97);
     const toxicFog1 = new Fluid('toxicFog1', "space", 160, 580, 340, 50, 'fuchsia', 'fuchsia', 0.1, 0.02, 1, 1);
@@ -99,12 +101,17 @@ const play = (players) => {
     const spearCeiling1 = new SpearTrapCeiling('spearTrapCeiling1', "space", 1240, 545, 'grey', 3, 0);
     const spearCeiling2 = new SpearTrapCeiling('spearTrapCeiling2', "space", 1280, 545, 'grey', 3, 100);
 
+    const spearFloor1 = new SpearTrap('spearFloor1', "space", 1180, 570, 'grey', 3);
+    const spearFloor2 = new SpearTrap('spearFloor2', "space", 1150, 480, 'grey', 2, 50);
+
 
     // arrays of objects to test players status
-    const contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4];
+    const contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4, platform5, platform6];
     const hazardZones = [acid1, toxicFog1];
-    const spikes = [spike1, spike2, spike3];
+    const spikes = [spike1, spike2, spike3, spearFloor1, spearFloor2];
     const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3, spearCeiling1, spearCeiling2];
+
+    const upgradingItems = [spearCeiling1, spearCeiling2, spearFloor1, spearFloor2]
 
 
     console.log("player1 borders: top: " + player1.topBorder + " bottom: " + player1.bottomBorder + ", wall1 borders: top: " + wall1.topBorder + " bottom: " + wall1.bottomBorder);
@@ -122,11 +129,10 @@ const play = (players) => {
         }
 
         player1.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
-
         player2.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
 
-        spearCeiling1.upgradePos(t);
-        spearCeiling2.upgradePos(t);
+        upgradingItems.forEach(i => i.upgradePos(t));
+
     }
 
     // Events that send orders for player1 movement
