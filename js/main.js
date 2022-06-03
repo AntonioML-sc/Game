@@ -104,11 +104,14 @@ const play = (players) => {
     const spearFloor1 = new SpearTrap('spearFloor1', "space", 1180, 570, 'grey', 3);
     const spearFloor2 = new SpearTrap('spearFloor2', "space", 1150, 480, 'grey', 2, 50);
 
-    const rollingRock1 = new RollingRock('rollingRock1', "space", 700, 350, 2, 300, 'lightgrey', 'grey', 1, 'black', 3);
+    const rollingRock1 = new RollingRock('rollingRock1', "space", 700, 350, 1, 300, 'lightgrey', 'grey', 1, 'black', 3);
 
 
     // arrays of objects to test players status
-    const contactObjects = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4, platform5, platform6];
+    const contactObjectsP1 = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4, platform5, platform6, player2];
+    const contactObjectsP2 = [wall1, wall2, wall3, wall4, wall5, wall6, platform1, platform2, platform3, platform4, platform5, platform6, player1];
+
+
     const hazardZones = [acid1, toxicFog1, rollingRock1];
     const spikes = [spike1, spike2, spike3, spearFloor1, spearFloor2];
     const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3, spearCeiling1, spearCeiling2];
@@ -130,8 +133,8 @@ const play = (players) => {
             console.log("Player1 vida restante: ", Math.round(player1.hp)); 
         }
 
-        player1.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
-        player2.upgradePos(contactObjects, hazardZones, spikes, ceilingSpikes);
+        player1.upgradePos(contactObjectsP1, hazardZones, spikes, ceilingSpikes);
+        player2.upgradePos(contactObjectsP2, hazardZones, spikes, ceilingSpikes);
 
         upgradingItems.forEach(i => i.upgradePos(t));
 

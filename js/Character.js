@@ -181,15 +181,15 @@ class Character {
                 const provRB = sx + vx + width;
                 for (let obs of obstacles) {
                     if ((bottomBorder > obs.topBorder) && (topBorder < obs.bottomBorder)) {  // obstacles at character's height
-                        if ((provRB >= obs.leftBorder) && (provLB <= obs.rightBorder)) {  // colission
-                            if ((vx > 0.0) && (provLB < obs.leftBorder)) {  // obstacle to right
+                        if ((provRB > obs.leftBorder) && (provLB < obs.rightBorder)) {  // colission
+                            if (provLB < obs.leftBorder) {  // obstacle to right
                                 const newX = obs.leftBorder - width;
                                 const newLB = obs.leftBorder - width;
                                 const newRB = obs.leftBorder;
                                 const [newVX, newVY] = [0, 0];
                                 return [newX, newLB, newRB, newVX, newVY];
                             }
-                            if ((vx < 0.0) && (provRB > obs.rightBorder)) {  // obstacle to left
+                            if (provRB > obs.rightBorder) {  // obstacle to left
                                 const newX = obs.rightBorder;
                                 const newLB = obs.rightBorder;
                                 const newRB = obs.rightBorder + width;
