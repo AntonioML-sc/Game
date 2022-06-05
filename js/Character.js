@@ -7,6 +7,7 @@ class Character {
 
     name = '';
     hp = 100;
+    maxHP = 100;
     maxSpeedX = 1.5;
     maxSpeedY = 5.0;
     height = 40.0;
@@ -18,6 +19,7 @@ class Character {
     ax = 0.0;
     ay = 0.1;
     img = '';
+    portrait = '';
     topBorder = 590.0;
     bottomBorder = 630.0;
     leftBorder = 50.0;
@@ -28,16 +30,18 @@ class Character {
 
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    constructor(name, hp, speed, jump, img = '') {
+    constructor(name, hp, speed, jump, img, portrait) {
         this.name = name;
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
         this.leftBorder = this.sx;
         this.rightBorder = this.sx + this.width;
         this.hp = hp;
+        this.maxHP = hp;
         this.maxSpeedX = speed;
         this.maxSpeedY = jump;
         this.img = img;
+        this.portrait = portrait;
     }
 
     ///////////////////////////////  METHODS  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -287,10 +291,10 @@ class Character {
 
 ////////// INSTANCES \\\\\\\\\\
 
-const barbarian = new Character("barbarian", 100, 1.5, 5, '../img/BarbarianPortrait2.png');
-const ninja = new Character("ninja", 80, 1.6, 5, '../img/NinjaPortrait.png');
-const miner = new Character("miner", 80, 1.5, 5.5, '../img/MinerPortrait.png');
-const archer = new Character("archer", 50, 1.7, 5.5, '../img/ArcherPortrait.png');
+const barbarian = new Character("barbarian", 100, 1.5, 5, '../img/BarbarianPortrait2.png', '../img/BarbarianSMPortrait.png');
+const ninja = new Character("ninja", 80, 1.6, 5, '../img/NinjaPortrait.png', '../img/NinjaSMPortrait.png');
+const miner = new Character("miner", 80, 1.5, 5.5, '../img/MinerPortrait.png', '../img/MinerSMPortrait.png');
+const archer = new Character("archer", 50, 1.7, 5.5, '../img/ArcherPortrait.png', '../img/ArcherSMPortrait.png');
 
 ////////// JS DICTIONARY \\\\\\\\\\
 

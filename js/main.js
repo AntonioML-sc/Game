@@ -79,14 +79,19 @@ const play = (players) => {
 
     const player1 = players[0];
     player1.render(50, 590, "space");
-    let player2;
 
-    if (players.length == 2) {
-        player2 = players[1];
-        player2.render(80, 590, "space");
-        console.log(player2);
-    }
+    const player1Portrait = document.getElementById("portraitP1");
+    const player1LifeBar = document.getElementById("lifeP1");
 
+    player1Portrait.setAttribute("style", `background-image: url(${players[0].portrait}); height: 15em; background-size: 47px 46px; background-repeat: no-repeat; background-position: top;`);
+    
+    const player2 = players[1];
+    player2.render(80, 590, "space");
+
+    const player2Portrait = document.getElementById("portraitP2");
+    const player2LifeBar = document.getElementById("lifeP2");
+    
+    player2Portrait.setAttribute("style", `background-image: url(${players[1].portrait}); height: 15em; background-size: 47px 46px; background-repeat: no-repeat; background-position: top;`);
 
     const wall0 = new Wall('wall0', "space", 500, 200, 240, 120, 'greenyellow', 3, 4, 4, 4, 4, 'black', 2, 2, 2, 2, '../img/stoneWall50x50.jpg');
 
@@ -152,8 +157,12 @@ const play = (players) => {
             console.log("Player1 vida restante: ", Math.round(player1.hp));
         }
 
+        // updates positions and displays the current hp of players
         player1.updatePos(contactObjectsP1, hazardZones, spikes, ceilingSpikes);
         player2.updatePos(contactObjectsP2, hazardZones, spikes, ceilingSpikes);
+
+        player1LifeBar.setAttribute("style", `background-color: lime; height: ${players[0].hp * 45 / players[0].maxHP }px; width: 100%; align-self: flex-end;`);
+        player2LifeBar.setAttribute("style", `background-color: lime; height: ${players[1].hp * 45 / players[1].maxHP }px; width: 100%; align-self: flex-end;`);
 
         upgradingItems.forEach(i => i.updatePos(t));
     }

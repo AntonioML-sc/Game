@@ -30,9 +30,36 @@ body {
     height: 50px;
     background-color: rgb(93, 93, 93);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.playerStatus {
+    width: 60px;
+    height: 47px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.portrait {
+    width: 47px;
+    height: 46px;
+}
+
+.lifeBar {
+    background-color: black;
+    width: 6px;
+    height: 45px;
+    margin-left: 2px;
+    border: 1px solid black;
+    display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+}
+
+#emptyBar {
+    width: 1160px;
 }
 
 #timerDiv {
@@ -40,7 +67,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-self: flex-end;
     color: white;
     margin-right: 10px;
 }
