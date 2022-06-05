@@ -14,6 +14,7 @@ class Character {
     width = 25.0;
     sx = 50.0;
     sy = 590.0;
+    initialPos = [];
     vx = 0.0;
     vy = 0.0;
     ax = 0.0;
@@ -52,6 +53,7 @@ class Character {
         this.fatherDiv = fatherDiv;
         this.sx = Number(sx);
         this.sy = Number(sy);
+        this.initialPos = [Number(sx), Number(sy)];
 
         // creates a div in this.fatherDiv that represents the character
         let make = document.createElement('div');
@@ -103,6 +105,7 @@ class Character {
         ////////// ENVIRONMENTAL ADJUSTMENTS \\\\\\\\\\
 
         function applyFluids(leftBorder, rightBorder, topBorder, bottomBorder, vx, vy, hp, liqs) {
+            // in some Fluid
             if (liqs.length == 0) {
                 return [vx, vy, hp];
             } else {
@@ -120,6 +123,7 @@ class Character {
         }
 
         function spikeTraps(leftBorder, rightBorder, topBorder, bottomBorder, hp, spikes) {
+            // traps on the floor
             if (spikes.length == 0) {
                 return hp;
             } else {
@@ -139,6 +143,7 @@ class Character {
         }
 
         function spikeTrapsCeiling(leftBorder, rightBorder, topBorder, bottomBorder, hp, ceilingSpikes) {
+            // traps hanging from the ceiling
             if (ceilingSpikes.length == 0) {
                 return hp;
             } else {
@@ -157,12 +162,22 @@ class Character {
             }
         }
 
+        function checkDeath(hp, maxHP, sx, sy, initialPos, width, height, topB, bottomB, leftB, rightB, vx, vy) {
+            // resurrects character and returns the character's div to the starting point when he is dead
+            if ((hp <= 0)) {
+                return [maxHP, initialPos[0], initialPos[1], initialPos[0], initialPos[0] + height, initialPos[1], initialPos[1] + width, 0.0, 0.0];
+            } else {
+                return [hp, sx, sy, topB, bottomB, leftB, rightB, vx, vy];
+            }
+        }
 
         [this.vx, this.vy, this.hp] = applyFluids(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.hp, liquids);
 
         this.hp = spikeTraps(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.hp, spikes);
         
         this.hp = spikeTrapsCeiling(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.hp, ceilingSpikes);
+
+        [this.hp, this.sx, this.sy, this.topBorder, this.bottomBorder, this.leftBorder, this.rightBorder, this.vx, this.vy] = checkDeath(this.hp, this.maxHP, this.sx, this.sy, this.initialPos, this.width, this.height, this.topBorder, this.bottomBorder, this.leftBorder, this.rightBorder, this.vx, this.vy);
 
         ////////// MOVEMENT IN X-AXIS \\\\\\\\\\
 
