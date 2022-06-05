@@ -95,33 +95,33 @@ const play = (players) => {
     // Walls
 
     
-    const floor1 = new Wall('floor1', "space", 0, 500, 1350, 20, 'brown', 3, 0, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const backWall = new Wall('backWall', "space", 0, 520, 1350, 110, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
-    const wall1 = new Wall('wall1', "space", 0, 580, 50, 50, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall2 = new Wall('wall2', "space", 100, 580, 100, 50, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall3 = new Wall('wall3', "space", 600, 580, 50, 50, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall4 = new Wall('wall4', "space", 680, 600, 50, 30, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall5 = new Wall('wall5', "space", 770, 600, 50, 30, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall6 = new Wall('wall6', "space", 1400, 580, 100, 50, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const floor1 = new Wall('floor1', "space", 0, 500, 1350, 20, '', 3, 0, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const backWall = new Wall('backWall', "space", 0, 520, 1350, 110, 'bisque', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const wall1 = new Wall('wall1', "space", 0, 580, 50, 50, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall2 = new Wall('wall2', "space", 100, 580, 100, 50, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall3 = new Wall('wall3', "space", 600, 580, 50, 50, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall4 = new Wall('wall4', "space", 680, 600, 50, 30, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall5 = new Wall('wall5', "space", 770, 600, 50, 30, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall6 = new Wall('wall6', "space", 1400, 580, 100, 50, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
 
     const platform1 = new Wall('platform1', 'space', 440, 575, 110, 10, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform2 = new Wall('platform2', 'space', 900, 575, 200, 10, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
 
-    const floor2 = new Wall('floor2', "space", 900, 300, 350, 20, 'brown', 3, 4, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const backWall2 = new Wall('backWall2', "space", 905, 320, 340, 180, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
-    const wall7 = new Wall('wall7', "space", 900, 320, 20, 100, 'brown', 3, 0, 0, 4, 4, 'rgb(81, 67, 67)', 2, 2, 2, 2, '../img/stoneWall.jpg');
-    const wall8 = new Wall('wall8', "space", 1230, 320, 20, 100, 'brown', 3, 0, 0, 4, 4, 'rgb(81, 67, 67)', 2, 2, 2, 2, '../img/stoneWall.jpg');
+    const floor2 = new Wall('floor2', "space", 900, 300, 350, 20, 'bisque', 3, 4, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const backWall2 = new Wall('backWall2', "space", 905, 320, 340, 180, 'bisque', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const wall7 = new Wall('wall7', "space", 900, 320, 20, 100, 'bisque', 3, 0, 0, 4, 4, 'rgb(81, 67, 67)', 2, 2, 2, 2, '../img/stoneWall.jpg');
+    const wall8 = new Wall('wall8', "space", 1230, 320, 20, 100, 'bisque', 3, 0, 0, 4, 4, 'rgb(81, 67, 67)', 2, 2, 2, 2, '../img/stoneWall.jpg');
     const door1 = new Wall('door1', "space", 904, 420, 14, 80, 'brown', 7, 0, 0, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const door2 = new Wall('door2', "space", 1232, 420, 14, 80, 'brown', 7, 0, 0, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     
     const platform3 = new Wall('platform3', 'space', 520, 420, 80, 15, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
-    const wall9 = new Wall('wall9', "space", 800, 445, 56, 55, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall10 = new Wall('wall10', "space", 400, 445, 56, 55, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const wall11 = new Wall('wall11', "space", 0, 420, 127, 80, 'brown', 3, 4, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
-    const backWall3 = new Wall('backWall3', "space", 110, 440, 320, 60, 'brown', 1, 6, 15, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
-    const backWall4 = new Wall('backWall4', "space", 525, 420, 70, 80, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
-    const backWall5 = new Wall('backWall5', "space", 0, 350, 45, 70, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
-    const wall12 = new Wall('wall12', "space", 127, 480, 40, 20, 'brown', 7, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall9 = new Wall('wall9', "space", 800, 445, 56, 55, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall10 = new Wall('wall10', "space", 400, 445, 56, 55, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall11 = new Wall('wall11', "space", 0, 420, 127, 80, 'bisque', 3, 4, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const backWall3 = new Wall('backWall3', "space", 110, 440, 320, 60, 'bisque', 1, 6, 15, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const backWall4 = new Wall('backWall4', "space", 525, 420, 70, 80, 'bisque', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const backWall5 = new Wall('backWall5', "space", 0, 350, 45, 70, 'bisque', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const wall12 = new Wall('wall12', "space", 127, 480, 40, 20, 'bisque', 7, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
 
     
     const platform4 = new Wall('platform4', 'space', 190, 280, 270, 15, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
@@ -129,7 +129,7 @@ const play = (players) => {
     const door3 = new Wall('door3', "space", 200, 290, 10, 150, 'brown', 4, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const door4 = new Wall('door4', "space", 436, 290, 10, 155, 'brown', 7, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     
-    const wall13 = new Wall('wall13', "space", 0, 190, 70, 65, 'brown', 3, 0, 4, 0, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall13 = new Wall('wall13', "space", 0, 190, 70, 65, 'bisque', 3, 0, 4, 0, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
     const platform6 = new Wall('platform6', 'space', 190, 140, 90, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform7 = new Wall('platform7', 'space', 380, 125, 100, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const box = new Wall('box', "space", 430, 250, 30, 30, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood5.jpg');
