@@ -23,7 +23,6 @@ class Fluid {
     img = '';
     topColor = 'aqua';
     bottomColor = 'aqua';
-    zIndex = 3;
     opacity = 0.5;
     
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

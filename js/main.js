@@ -106,6 +106,29 @@ const play = (players) => {
 
     const platform1 = new Wall('platform1', 'space', 440, 575, 110, 10, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform2 = new Wall('platform2', 'space', 900, 575, 200, 10, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+
+    const floor2 = new Wall('floor2', "space", 900, 300, 350, 20, 'brown', 3, 4, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const backWall2 = new Wall('backWall2', "space", 905, 320, 340, 180, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const wall7 = new Wall('wall7', "space", 900, 320, 20, 100, 'brown', 3, 0, 0, 4, 4, 'rgb(81, 67, 67)', 2, 2, 2, 2, '../img/stoneWall.jpg');
+    const wall8 = new Wall('wall8', "space", 1230, 320, 20, 100, 'brown', 3, 0, 0, 4, 4, 'rgb(81, 67, 67)', 2, 2, 2, 2, '../img/stoneWall.jpg');
+    const door1 = new Wall('door1', "space", 904, 420, 14, 80, 'brown', 7, 0, 0, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    const door2 = new Wall('door2', "space", 1232, 420, 14, 80, 'brown', 7, 0, 0, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    
+    const platform3 = new Wall('platform3', 'space', 520, 420, 80, 15, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    const wall9 = new Wall('wall9', "space", 800, 445, 56, 55, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall10 = new Wall('wall10', "space", 400, 445, 56, 55, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const wall11 = new Wall('wall11', "space", 0, 420, 127, 80, 'brown', 3, 4, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');    
+    const backWall3 = new Wall('backWall3', "space", 110, 440, 320, 60, 'brown', 1, 6, 15, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const backWall4 = new Wall('backWall4', "space", 525, 420, 70, 80, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const backWall5 = new Wall('backWall5', "space", 0, 350, 45, 70, 'brown', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
+    const wall12 = new Wall('wall12', "space", 127, 480, 40, 20, 'brown', 7, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+
+    
+    const platform4 = new Wall('platform4', 'space', 190, 280, 270, 15, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    const platform5 = new Wall('platform5', 'space', 0, 350, 60, 15, 'brown', 3, 0, 3, 0, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    const door3 = new Wall('door3', "space", 200, 290, 10, 150, 'brown', 4, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    const door4 = new Wall('door4', "space", 436, 290, 10, 155, 'brown', 7, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+
     // Traps
 
     const water1 = new Fluid('water1', "space", 200, 590, 400, 40, 'rgb(0, 204, 255)', 'rgb(0, 204, 255)', 0.35, 0.0, 0.7, 0.97);
@@ -117,7 +140,6 @@ const play = (players) => {
     const spikeCeiling5 = new SpikeTrapCeiling('spikeCeiling5', "space", 330, 520, 'rgb(102, 70, 70)', 3);
     const spikeCeiling6 = new SpikeTrapCeiling('spikeCeiling6', "space", 350, 520, 'rgb(102, 70, 70)', 3);
     const spikeCeiling7 = new SpikeTrapCeiling('spikeCeiling7', "space", 370, 520, 'rgb(102, 70, 70)', 3);
-
     
     const spike1 = new SpikeTrap('spike1', "space", 655, 610, 'rgb(102, 70, 70)', 3);
     const spike2 = new SpikeTrap('spike2', "space", 740, 610, 'rgb(102, 70, 70)', 3);
@@ -132,16 +154,33 @@ const play = (players) => {
     const spearFloor1 = new SpearTrap('spearFloor1', "space", 900, 600, 'rgb(66, 80, 99)', 2);
     const spearFloor2 = new SpearTrap('spearFloor2', "space", 1000, 600, 'rgb(66, 80, 99)', 2, 50);
     const spearFloor3 = new SpearTrap('spearFloor3', "space", 1090, 600, 'rgb(66, 80, 99)', 2, 150);
+    
+    const toxicFog1 = new Fluid('toxicFog1', "space", 920, 320, 310, 180, 'green', 'limegreen', 0.15, 0.04, 1, 1);
+    
+    const rollingRock1 = new RollingRock('rollingRock1', "space", 458, 450, 2, 340, 'lightgrey', 'grey', 1, 'black', 3);
+    
+    const acid1 = new Fluid('acid1', "space", 127, 460, 273, 40, 'lime', 'green', 0.45, 0.06, 0.7, 0.97);
+    
+    const spikeCeiling10 = new SpikeTrapCeiling('spikeCeiling10', "space", 210, 295, 'rgb(102, 70, 70)', 3);
+    const spikeCeiling11 = new SpikeTrapCeiling('spikeCeiling11', "space", 230, 295, 'rgb(102, 70, 70)', 3);
+    const spikeCeiling12 = new SpikeTrapCeiling('spikeCeiling12', "space", 250, 295, 'rgb(102, 70, 70)', 3);
+    const spikeCeiling13 = new SpikeTrapCeiling('spikeCeiling13', "space", 380, 295, 'rgb(102, 70, 70)', 3);
+    const spikeCeiling14 = new SpikeTrapCeiling('spikeCeiling14', "space", 400, 295, 'rgb(102, 70, 70)', 3);
 
     // arrays of objects to test players status
-    const contactObjectsP1 = [player2, floor1, wall1, wall2, wall3, platform1, wall4, wall5, platform2, wall6];
-    const contactObjectsP2 = [player1, floor1, wall1, wall2, wall3, platform1, wall4, wall5, platform2, wall6];
+    const contactObjectsP1 = [player2, floor1, wall1, wall2, wall3, platform1, wall4, wall5, platform2, wall6,
+         floor2, wall7, wall8, wall9, wall10, wall11, platform3, platform4, platform5, wall12];
 
-    const hazardZones = [water1];
+    const contactObjectsP2 = [player1, floor1, wall1, wall2, wall3, platform1, wall4, wall5, platform2, wall6,
+         floor2, wall7, wall8, wall9, wall10, wall11, platform3, platform4, platform5, wall12];
+
+    const hazardZones = [water1, toxicFog1, rollingRock1, acid1];
     const spikes = [spike1, spike2, spearFloor1, spearFloor2, spearFloor3, spike3, spike4];
-    const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3, spikeCeiling4, spikeCeiling5, spikeCeiling6, spikeCeiling7, spikeCeiling8, spearCeiling1, spearCeiling2];
+    const ceilingSpikes = [spikeCeiling1, spikeCeiling2, spikeCeiling3, spikeCeiling4, spikeCeiling5, spikeCeiling6,
+         spikeCeiling7, spikeCeiling8, spearCeiling1, spearCeiling2, spikeCeiling10, spikeCeiling11, spikeCeiling12,
+          spikeCeiling13, spikeCeiling14];
 
-    const updatingItems = [spearCeiling1, spearCeiling2, spearFloor1, spearFloor2, spearFloor3];
+    const updatingItems = [spearCeiling1, spearCeiling2, spearFloor1, spearFloor2, spearFloor3, rollingRock1];
 
 
     // Function that checks the status
