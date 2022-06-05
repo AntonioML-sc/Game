@@ -28,7 +28,7 @@ class Character {
 
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    constructor(name, hp, speed, jump) {
+    constructor(name, hp, speed, jump, img = '') {
         this.name = name;
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
@@ -37,6 +37,7 @@ class Character {
         this.hp = hp;
         this.maxSpeedX = speed;
         this.maxSpeedY = jump;
+        this.img = img;
     }
 
     ///////////////////////////////  METHODS  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -92,7 +93,7 @@ class Character {
         }
     }
 
-    upgradePos(arr, liquids, spikes, ceilingSpikes) {
+    updatePos(arr, liquids, spikes, ceilingSpikes) {
         // upgrades character status based on speed and phisics and assigns a new valid position.
 
         ////////// ENVIRONMENTAL ADJUSTMENTS \\\\\\\\\\
@@ -286,16 +287,16 @@ class Character {
 
 ////////// INSTANCES \\\\\\\\\\
 
-const pepe = new Character("pepe", 100, 1.5, 5);
-const juan = new Character("juan", 80, 1.6, 5);
-const ana = new Character("ana", 80, 1.5, 5.5);
-const elena = new Character("elena", 50, 1.7, 5.5);
+const barbarian = new Character("barbarian", 100, 1.5, 5, '../img/BarbarianPortrait2.png');
+const ninja = new Character("ninja", 80, 1.6, 5, '../img/NinjaPortrait.png');
+const miner = new Character("miner", 80, 1.5, 5.5, '../img/MinerPortrait.png');
+const archer = new Character("archer", 50, 1.7, 5.5, '../img/ArcherPortrait.png');
 
 ////////// JS DICTIONARY \\\\\\\\\\
 
 const characters = {
-    "1": pepe,
-    "2": juan,
-    "3": ana,
-    "4": elena
+    "1": barbarian,
+    "2": ninja,
+    "3": miner,
+    "4": archer
 };

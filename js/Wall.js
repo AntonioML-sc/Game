@@ -31,7 +31,7 @@ class Wall {
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     constructor(name, fatherDiv, sx, sy, width, height, bgColor, zIndex, brLT, brRT, brLB, brRB,
-        borderColor, borderTopSize, borderBottomSize, borderLeftSize, borderRightSize) {
+        borderColor, borderTopSize, borderBottomSize, borderLeftSize, borderRightSize, img = '') {
         this.name = name;
         this.sx = Number(sx);
         this.sy = Number(sy);
@@ -53,6 +53,7 @@ class Wall {
         this.borderBottomSize = borderBottomSize;
         this.borderLeftSize = borderLeftSize;
         this.borderRightSize = borderRightSize;
+        this.img = img;
         this.render();
     }
 
@@ -67,7 +68,8 @@ class Wall {
         // set css styles to the wall        
         this.div = document.getElementById(this.name);
         this.div.setAttribute("style", 
-            `background-color: ${this.bgColor}; 
+            `background-color: ${this.bgColor};
+            background-image: url(${this.img});
             width: ${this.width}px; 
             height: ${this.height}px;
             position: absolute; 
@@ -86,3 +88,5 @@ class Wall {
             border-bottom-right-radius: ${this.borderRadiusRB}px;`);
     }
 }
+
+// background-image: url('../img/stoneWall.jpg');

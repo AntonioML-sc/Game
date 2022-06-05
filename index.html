@@ -13,18 +13,24 @@
 
     <div id="screen2">
         <div class="charactersDisplay">
-            <div class="character ch1" onclick="pickCharacter('1')"><img class="photo" src="" alt="Pepe"></div>
-            <div class="character ch2" onclick="pickCharacter('2')"><img class="photo" src="" alt="Juan"></div>
-            <div class="character ch3" onclick="pickCharacter('3')"><img class="photo" src="" alt="Ana"></div>
-            <div class="character ch4" onclick="pickCharacter('4')"><img class="photo" src="" alt="Elena"></div>
+            <div class="character ch1" id="1" onclick="pickCharacter('1')"><img class="photo" src="./img/BarbarianPortrait2.png" alt="Pepe"></div>
+            <div class="character ch2" id="2" onclick="pickCharacter('2')"><img class="photo" src="./img/NinjaPortrait.png" alt="Juan"></div>
+            <div class="character ch3" id="3" onclick="pickCharacter('3')"><img class="photo" src="./img/MinerPortrait.png" alt="Ana"></div>
+            <div class="character ch4" id="4" onclick="pickCharacter('4')"><img class="photo" src="./img/ArcherPortrait.png" alt="Elena"></div>
+        </div>
+        <div class="characterStats">
+            <div class="stats ch1" id="statsBarbarian"></div>
+            <div class="stats ch2" id="statsNinja"></div>
+            <div class="stats ch3" id="statsMiner"></div>
+            <div class="stats ch4" id="statsArcher"></div>
         </div>
     </div>
 
     <div id="screen3" onclick="screenShift('screen4')">
         <div id="waitingDisplay">
-            <div id="player1Character" class="character ch1"></div>
+            <div id="player1Character" class="character"></div>
             <div id="countdown"></div>
-            <div id="player2Character" class="character ch2"></div>
+            <div id="player2Character" class="character"></div>
         </div>
     </div>
 
@@ -50,6 +56,7 @@
     <script src="./js/SpearTrapCeiling.js"></script>
     <script src="./js/SpearTrap.js"></script>
     <script src="./js/RollingRock.js"></script>
+    <script src="./js/Bird.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

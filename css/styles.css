@@ -86,6 +86,7 @@ body {
     width: 100vw;
     background-color: grey;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -93,16 +94,19 @@ body {
 .charactersDisplay {
     background-color: cadetblue;
     display: flex;
-    height: 20em;
-    width: 50em;
+    height: 18em;
+    width: 70em;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;    
 }
 
 .character {
-    height: 15em;
-    width: 10em;
+    height: 16em;
+    width: 16em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ch1 {    
@@ -122,8 +126,27 @@ body {
 }
 
 .photo {
-    height: 8em;
+    height: 15em;
     padding: 2em;
+}
+
+.characterStats {
+    background-color: cadetblue;
+    display: flex;
+    height: 10em;
+    width: 70em;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+.stats {
+    height: 8em;
+    width: 16em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
 }
 
 /* screen 3 and children */

@@ -91,7 +91,7 @@ class SpearTrap {
         );
     }
 
-    upgradePos(time) {
+    updatePos(time) {
         let timing = (time + this.timeGap) % 200;
         if (timing == 0) {
             this.poleLength = 50;
