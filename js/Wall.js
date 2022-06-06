@@ -69,7 +69,7 @@ class Wall {
         this.div = document.getElementById(this.name);
         this.div.setAttribute("style", 
             `background-color: ${this.bgColor};
-            background-image: url(${this.img});
+            background-image: url('${this.img}');
             width: ${this.width}px; 
             height: ${this.height}px;
             position: absolute; 

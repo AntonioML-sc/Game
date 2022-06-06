@@ -47,8 +47,8 @@ const pickCharacter = (character) => {
                 const p1Character = document.getElementById("player1Character");
                 const p2Character = document.getElementById("player2Character");
                 const countdown = document.getElementById("countdown");
-                p1Character.setAttribute("style", `background-image: url(${players[0].img}); height: 15em; background-size: auto 15em; background-repeat: no-repeat; background-position: center;`);
-                p2Character.setAttribute("style", `background-image: url(${players[1].img}); height: 15em; background-size: auto 15em; background-repeat: no-repeat; background-position: center;`);
+                p1Character.setAttribute("style", `background-image: url('${players[0].img}'); height: 15em; background-size: auto 15em; background-repeat: no-repeat; background-position: center;`);
+                p2Character.setAttribute("style", `background-image: url('${players[1].img}'); height: 15em; background-size: auto 15em; background-repeat: no-repeat; background-position: center;`);
 
                 screenShift("screen3");
 
@@ -83,19 +83,19 @@ const play = (players) => {
     player1.render(10, 540, "space");
     const player1Portrait = document.getElementById("portraitP1");
     const player1LifeBar = document.getElementById("lifeP1");
-    player1Portrait.setAttribute("style", `background-image: url(${players[0].portrait}); height: 15em; background-size: 47px 46px; background-repeat: no-repeat; background-position: top;`);
+    player1Portrait.setAttribute("style", `background-image: url('${players[0].portrait}'); height: 15em; background-size: 47px 46px; background-repeat: no-repeat; background-position: top;`);
 
     // Player 2
     const player2 = players[1];
     player2.render(60, 590, "space");
     const player2Portrait = document.getElementById("portraitP2");
     const player2LifeBar = document.getElementById("lifeP2");
-    player2Portrait.setAttribute("style", `background-image: url(${players[1].portrait}); height: 15em; background-size: 47px 46px; background-repeat: no-repeat; background-position: top;`);
+    player2Portrait.setAttribute("style", `background-image: url('${players[1].portrait}'); height: 15em; background-size: 47px 46px; background-repeat: no-repeat; background-position: top;`);
 
     // Walls
 
     
-    const floor1 = new Wall('floor1', "space", 0, 500, 1350, 20, '', 3, 0, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
+    const floor1 = new Wall('floor1', "space", 0, 500, 1350, 20, 'bisque', 3, 0, 4, 0, 0, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
     const backWall = new Wall('backWall', "space", 0, 520, 1350, 110, 'bisque', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 1, 1, 0, 1, '../img/stoneWall50x50.jpg');
     const wall1 = new Wall('wall1', "space", 0, 580, 50, 50, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
     const wall2 = new Wall('wall2', "space", 100, 580, 100, 50, 'bisque', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
@@ -132,7 +132,7 @@ const play = (players) => {
     const wall13 = new Wall('wall13', "space", 0, 190, 70, 65, 'bisque', 3, 0, 4, 0, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/stoneWall.jpg');
     const platform6 = new Wall('platform6', 'space', 190, 140, 90, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform7 = new Wall('platform7', 'space', 380, 125, 100, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
-    const box = new Wall('box', "space", 430, 250, 30, 30, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood5.jpg');
+    const box = new Wall('box', "space", 430, 250, 30, 30, 'brown', 3, 4, 4, 4, 4, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood3.jpg');
     const platform8 = new Wall('platform8', 'space', 580, 160, 60, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform9 = new Wall('platform9', 'space', 780, 220, 60, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform10 = new Wall('platform10', 'space', 840, 270, 60, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
