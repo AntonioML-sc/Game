@@ -64,7 +64,7 @@ class Bird {
             left: ${this.sx}px;
             z-index: ${this.zIndex};
             transform: scaleX(-1);
-            background-image: url('../img/EagleSM.png');
+            background-image: url('./img/EagleSM.png');
             background-size: ${this.width}px ${this.height}px;`
         );
     }

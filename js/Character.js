@@ -324,10 +324,10 @@ class Character {
 
 ////////// INSTANCES \\\\\\\\\\
 
-const barbarian = new Character("barbarian", 100, 1.5, 5, '../img/BarbarianPortrait2.png', '../img/BarbarianSMPortrait.png', '../img/BarbarianSM.png');
-const ninja = new Character("ninja", 80, 1.6, 5, '../img/NinjaPortrait.png', '../img/NinjaSMPortrait.png', '../img/NinjaSM.png');
-const miner = new Character("miner", 80, 1.5, 5.5, '../img/MinerPortrait.png', '../img/MinerSMPortrait.png', '../img/MinerSM.png');
-const archer = new Character("archer", 50, 1.7, 5.5, '../img/ArcherPortrait.png', '../img/ArcherSMPortrait.png', '../img/ArcherSM.png');
+const barbarian = new Character("barbarian", 100, 1.5, 5, './img/BarbarianPortrait2.png', './img/BarbarianSMPortrait.png', './img/BarbarianSM.png');
+const ninja = new Character("ninja", 80, 1.6, 5, './img/NinjaPortrait.png', './img/NinjaSMPortrait.png', './img/NinjaSM.png');
+const miner = new Character("miner", 80, 1.5, 5.5, './img/MinerPortrait.png', './img/MinerSMPortrait.png', './img/MinerSM.png');
+const archer = new Character("archer", 50, 1.7, 5.5, './img/ArcherPortrait.png', './img/ArcherSMPortrait.png', './img/ArcherSM.png');
 
 ////////// JS DICTIONARY \\\\\\\\\\
 
