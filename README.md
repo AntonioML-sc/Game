@@ -45,6 +45,8 @@ Salto: tecla dirección arriba <br>
 
 La condición de victoria es alcanzar la plataforma con la bandera roja, en la esquina superior derecha de la pantalla.
 
+Versión actual del juego: https://antonioml-sc.github.io/GameForGeeksHubs/
+
 #### Bugs conocidos y posibles nuevos trabajos:
 
 - El código siempre se puede optimizar un tanto más. Seguro que hay algún modo más sencillo de hacer lo mismo. <br>
