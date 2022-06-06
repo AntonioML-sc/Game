@@ -88,5 +88,3 @@ class Wall {
             border-bottom-right-radius: ${this.borderRadiusRB}px;`);
     }
 }
-
-// background-image: url('../img/stoneWall.jpg');

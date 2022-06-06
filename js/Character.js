@@ -106,15 +106,24 @@ class Character {
 
         ////////// ENVIRONMENTAL ADJUSTMENTS \\\\\\\\\\
 
-        function applyFluids(leftBorder, rightBorder, topBorder, bottomBorder, vx, vy, hp, liqs) {
+        function applyFluids(leftBorder, rightBorder, topBorder, bottomBorder, vx, vy, maxSpeedX, maxSpeedY, hp, liqs) {
             // in some Fluid
             if (liqs.length == 0) {
                 return [vx, vy, hp];
             } else {
                 for (let i in liqs) {
                     if ((rightBorder > liqs[i].leftBorder) && (leftBorder < liqs[i].rightBorder) && (topBorder < liqs[i].bottomBorder) && (bottomBorder >= liqs[i].topBorder)) {
-                        const newVX = vx * liqs[i].velXPenalty;
-                        const newVY = vy * liqs[i].velYPenalty;
+                        let newVX, newVY;
+                        if (Math.abs(vx) > maxSpeedX * liqs[i].velXPenalty) {
+                            newVX = vx * liqs[i].velXPenalty;
+                        } else {
+                            newVX = vx;
+                        }
+                        if (Math.abs(vy) > maxSpeedY * liqs[i].velYPenalty) {
+                            newVY = vy * liqs[i].velYPenalty;
+                        } else {
+                            newVY = vy;
+                        }
                         const newHP = Math.max(hp - liqs[i].dps, 0);
                         return [newVX, newVY, newHP];
                     } else if (i == liqs.length - 1) {
@@ -173,7 +182,7 @@ class Character {
             }
         }
 
-        [this.vx, this.vy, this.hp] = applyFluids(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.hp, liquids);
+        [this.vx, this.vy, this.hp] = applyFluids(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.vx, this.vy, this.maxSpeedX, this.maxSpeedY, this.hp, liquids);
 
         this.hp = spikeTraps(this.leftBorder, this.rightBorder, this.topBorder, this.bottomBorder, this.hp, spikes);
         
