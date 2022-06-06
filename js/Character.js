@@ -21,6 +21,7 @@ class Character {
     ay = 0.1;
     img = '';
     portrait = '';
+    imgInGame = '';
     topBorder = 590.0;
     bottomBorder = 630.0;
     leftBorder = 50.0;
@@ -31,7 +32,7 @@ class Character {
 
     ///////////////////////////////  CONSTRUCTOR  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    constructor(name, hp, speed, jump, img, portrait) {
+    constructor(name, hp, speed, jump, img, portrait, imgInGame = '') {
         this.name = name;
         this.topBorder = this.sy;
         this.bottomBorder = this.sy + this.height;
@@ -43,6 +44,7 @@ class Character {
         this.maxSpeedY = jump;
         this.img = img;
         this.portrait = portrait;
+        this.imgInGame = imgInGame;
     }
 
     ///////////////////////////////  METHODS  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -63,15 +65,15 @@ class Character {
         // set styles to the charachter        
         this.div = document.getElementById(this.name);
         this.div.setAttribute("style",
-            `background-color: orange;
-            width: ${this.width}px;
+            `width: ${this.width}px;
             height: ${this.height}px;
             position: absolute;
             top: ${this.sy}px;
             left: ${this.sx}px;
-            z-index: 5;`
+            z-index: 5;
+            background-image: url('${this.imgInGame}');
+            background-size: ${this.width}px ${this.height}px;`
         );
-        this.div.innerHTML = this.name;  // note to dev: delete this line when image is available
     }
 
     move(direction) {
@@ -301,15 +303,22 @@ class Character {
         // set the div in the assigned position
         this.div.style.setProperty("left", `${this.sx}px`);
         this.div.style.setProperty("top", `${this.sy}px`);
+
+        // Direction of the image
+        if (this.vx > 0) {            
+            this.div.style.setProperty("transform", `none`);
+        } else if (this.vx < 0) {
+            this.div.style.setProperty("transform", `scaleX(-1)`);
+        }
     }
 }
 
 ////////// INSTANCES \\\\\\\\\\
 
-const barbarian = new Character("barbarian", 100, 1.5, 5, '../img/BarbarianPortrait2.png', '../img/BarbarianSMPortrait.png');
-const ninja = new Character("ninja", 80, 1.6, 5, '../img/NinjaPortrait.png', '../img/NinjaSMPortrait.png');
-const miner = new Character("miner", 80, 1.5, 5.5, '../img/MinerPortrait.png', '../img/MinerSMPortrait.png');
-const archer = new Character("archer", 50, 1.7, 5.5, '../img/ArcherPortrait.png', '../img/ArcherSMPortrait.png');
+const barbarian = new Character("barbarian", 100, 1.5, 5, '../img/BarbarianPortrait2.png', '../img/BarbarianSMPortrait.png', '../img/BarbarianSM.png');
+const ninja = new Character("ninja", 80, 1.6, 5, '../img/NinjaPortrait.png', '../img/NinjaSMPortrait.png', '../img/NinjaSM.png');
+const miner = new Character("miner", 80, 1.5, 5.5, '../img/MinerPortrait.png', '../img/MinerSMPortrait.png', '../img/MinerSM.png');
+const archer = new Character("archer", 50, 1.7, 5.5, '../img/ArcherPortrait.png', '../img/ArcherSMPortrait.png', '../img/ArcherSM.png');
 
 ////////// JS DICTIONARY \\\\\\\\\\
 

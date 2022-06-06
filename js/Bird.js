@@ -3,8 +3,8 @@ class Bird {
     ///////////////////////////////  CLASS ATTRIBUTES  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     name = '';
-    height = 20;         // sixe in px
-    width = 40;
+    height = 40;         // sixe in px
+    width = 70;
     sx = 0;             // insertion coordinates
     sy = 0;
     initialSx = 0;
@@ -63,9 +63,10 @@ class Bird {
             top: ${this.sy}px;
             left: ${this.sx}px;
             z-index: ${this.zIndex};
-            background-color: ${this.bgColor};`
+            transform: scaleX(-1);
+            background-image: url('../img/EagleSM.png');
+            background-size: ${this.width}px ${this.height}px;`
         );
-
     }
 
     updatePos(time) {
@@ -81,6 +82,12 @@ class Bird {
         this.sy = inc;
         this.topBorder = inc;
         this.bottomBorder = inc + this.height;
+
+        if (this.vx > 0) {            
+            this.div.style.setProperty("transform", `scaleX(-1)`);
+        } else {
+            this.div.style.setProperty("transform", `none`);
+        }
 
         // set the divs position
         this.div.style.setProperty("left", `${this.sx}px`);
