@@ -138,7 +138,8 @@ const play = (players) => {
     const platform10 = new Wall('platform10', 'space', 840, 270, 60, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform11 = new Wall('platform11', 'space', 1340, 230, 60, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
     const platform12 = new Wall('platform12', 'space', 1150, 150, 100, 12, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
-    const platformFinal = new Wall('platformFinal', 'space', 1350, 80, 150, 18, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');
+    const platformFinal = new Wall('platformFinal', 'space', 1350, 80, 150, 18, 'brown', 3, 3, 3, 3, 3, 'rgb(81, 67, 67)', 1, 1, 1, 1, '../img/wood2.jpg');    
+    const flag = new Wall('backWall5', "space", 1350, 20, 114, 60, '', 1, 0, 0, 0, 0, 'rgb(81, 67, 67)', 0, 0, 0, 0, '../img/redFlag60x114.png');
 
     // Traps
 
@@ -244,7 +245,7 @@ const play = (players) => {
             if ((p.sx > goalPosition[0]) && (p.sy <= goalPosition[1])) {
                 console.log("alguien ha llegado a la meta");
                 clearInterval(runGame);
-                winnerIs.innerHTML = `Ganador: ${p.name}`;
+                winnerIs.innerHTML = `The ${p.name} has managed to escape`;
                 screenShift("screen5");
             }
         }

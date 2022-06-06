@@ -98,12 +98,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../img/dungeonBackground.jpg');
 }
 
-.logo {
-    background-color: aquamarine;
-    height: 30em;
-    width: 30em;
+.textPresentation {
+    color: crimson;
+    font-family: 'Lobster';
+    font-size: 3em;
 } 
 
 /* screen 2 and children */
@@ -116,10 +117,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('../img/dungeonBackground.jpg');
 }
 
 .charactersDisplay {
-    background-color: cadetblue;
     display: flex;
     height: 18em;
     width: 70em;
@@ -136,29 +137,12 @@ body {
     align-items: center;
 }
 
-.ch1 {    
-    background-color: red;
-}
-
-.ch2 {    
-    background-color: blue;
-}
-
-.ch3 {    
-    background-color: yellow;
-}
-
-.ch4 {    
-    background-color: green;
-}
-
 .photo {
     height: 15em;
     padding: 2em;
 }
 
 .characterStats {
-    background-color: cadetblue;
     display: flex;
     height: 10em;
     width: 70em;
@@ -173,7 +157,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1em;
+    font-size: 1.3em;
+    color: beige;
 }
 
 /* screen 3 and children */
@@ -186,14 +171,13 @@ body {
     align-items: center;
     flex-direction: row;
     justify-content: center;
+    background-image: url('../img/dungeonBackground.jpg');
 }
 
 #waitingDisplay {
-    background-color: cadetblue;
     display: flex;
     height: 20em;
     width: 50em;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
@@ -201,7 +185,13 @@ body {
 #countdown {
     height: 15em;
     width: 10em;
-    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoVS {    
+    width: 10em;
 }
 
 /* screen 5 and children */
@@ -211,4 +201,14 @@ body {
     width: 100vw;
     background-color: orange;
     display: none;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/Sunset.jpg');
+    background-size: 100vw 100vh;
+}
+
+#winnerIs {
+    font-family: 'Lobster';
+    font-size: 3em;
+    color: blanchedalmond;
 }

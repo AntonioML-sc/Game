@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>    
 
-    <div id="screen1"><img class="logo" src="" alt="logo" onclick="screenShift('screen2')"></div>
+<body>
+
+    <div id="screen1" onclick="screenShift('screen2')">
+        <div class="textPresentation">Escape from the Dungeon</div>
+    </div>
 
     <div id="screen2">
         <div class="charactersDisplay">
-            <div class="character ch1" id="1" onclick="pickCharacter('1')"><img class="photo" src="./img/BarbarianPortrait2.png" alt="Barbarian"></div>
-            <div class="character ch2" id="2" onclick="pickCharacter('2')"><img class="photo" src="./img/NinjaPortrait.png" alt="Ninja"></div>
-            <div class="character ch3" id="3" onclick="pickCharacter('3')"><img class="photo" src="./img/MinerPortrait.png" alt="Miner"></div>
-            <div class="character ch4" id="4" onclick="pickCharacter('4')"><img class="photo" src="./img/ArcherPortrait.png" alt="Archer"></div>
+            <div class="character" id="1" onclick="pickCharacter('1')"><img class="photo"
+                    src="./img/BarbarianPortrait2.png" alt="Barbarian"></div>
+            <div class="character" id="2" onclick="pickCharacter('2')"><img class="photo"
+                    src="./img/NinjaPortrait.png" alt="Ninja"></div>
+            <div class="character" id="3" onclick="pickCharacter('3')"><img class="photo"
+                    src="./img/MinerPortrait.png" alt="Miner"></div>
+            <div class="character" id="4" onclick="pickCharacter('4')"><img class="photo"
+                    src="./img/ArcherPortrait.png" alt="Archer"></div>
         </div>
         <div class="characterStats">
-            <div class="stats ch1" id="statsBarbarian"></div>
-            <div class="stats ch2" id="statsNinja"></div>
-            <div class="stats ch3" id="statsMiner"></div>
-            <div class="stats ch4" id="statsArcher"></div>
+            <div class="stats" id="statsBarbarian"></div>
+            <div class="stats" id="statsNinja"></div>
+            <div class="stats" id="statsMiner"></div>
+            <div class="stats" id="statsArcher"></div>
         </div>
     </div>
 
     <div id="screen3" onclick="screenShift('screen4')">
         <div id="waitingDisplay">
             <div id="player1Character" class="character"></div>
-            <div id="countdown"></div>
+            <div id="countdown"><img class="logoVS" src="./img/VersusLogo.png" alt="Archer"></div>
             <div id="player2Character" class="character"></div>
         </div>
     </div>
@@ -56,7 +69,7 @@
         <div id="space"></div>
         <div id="floor"></div>
     </div>
-    
+
     <div id="screen5" onclick="restart()">
         <div id="winnerIs"></div>
     </div>
@@ -72,4 +85,5 @@
     <script src="./js/Bird.js"></script>
     <script src="./js/main.js"></script>
 </body>
+
 </html>
